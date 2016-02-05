@@ -1,0 +1,26 @@
+<table id="customer-data" style="margin-bottom: 10px;width:100%">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td class="sortable searchable" data="rollnumber">Roll Number</td>
+            <td class="sortable searchable" data="first_name">First Name</td>
+            <td class="sortable searchable" data="last_name">Last Name</td>
+            <td class="sortable searchable" data="email">Email</td>
+            <td data="gender">Gender</td>
+            <td class="setRange sortable" data="marks">Marks</td>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each data}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.rollnumber}}</td>
+            <td>{{this.first_name}}</td>
+            <td>{{this.last_name}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.gender}}</td>
+            <td>{{this.marks}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
