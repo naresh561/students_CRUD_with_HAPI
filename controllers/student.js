@@ -41,3 +41,26 @@ exports.addstudent = {
 	    
     }
 };
+
+
+
+exports.editstudent = {
+    handler:function(request,reply){
+        try{
+            var id= request.params.id;
+            StudentModel.editstudent(reply,id);
+        }catch(e){
+             console.log(e);
+        }
+    }
+}
+exports.updatestudent = {
+    handler:function(request,reply){
+        try{
+            StudentModel.UpdateStudents(request,reply); 
+        }
+        catch(e){
+            
+        }
+    }
+}

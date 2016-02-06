@@ -6,4 +6,6 @@ exports.endpoints = [
     { method: 'POST',   path: '/delete/{id}' , config: Student.deleteStudent },
     { method:'GET', path:'/addstudent', config:Student.newstudent },
     { method:'POST', path:'/addstudent', config:Student.addstudent },
+    {method:'GET',path:'/editstudent/{id}',config:Student.editstudent},
+    { method:'POST', path:'/editstudent', config:Student.updatestudent }
 ];

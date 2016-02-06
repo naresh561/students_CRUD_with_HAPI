@@ -34,3 +34,43 @@ module.exports.AddStudents = function(request,reply){
               else{_reply(userconnection); reply.view('listall/addstudent' , {title:'Users',data:"Student added Successfully"});}
       });
 };
+
+module.exports.editstudent = function ( reply ,id  ){
+    try{
+        var userconnection = _start();
+        userconnection.query("SELECT * FROM student WHERE id = ? ",[id] ,function(err,row){
+
+            if(err) reply(err);
+            else{_reply(userconnection); reply.view('listall/editstudent',{title:'Users',data:row[0]});}
+        });
+    }catch(e){
+        console.log(e);
+    }
+};
+module.exports.UpdateStudents = function(request,reply)
+
+{
+    try{
+        var userconnection = _start();
+        var data1=[request.payload.rollno,request.payload.fstnme,request.payload.lstnme,request.payload.mail, request.payload.gender,request.payload.marks,request.payload.id];
+        var student={
+                      rollnumber : request.payload.rollno,
+                      first_name : request.payload.fstnme,
+                      last_name : request.payload.lstnme,
+                      email : request.payload.mail, 
+                      gender : request.payload.gender,
+                      marks :  request.payload.marks,
+                      id : request.payload.id};
+        userconnection.query("UPDATE `student` SET `rollnumber`=?,`first_name`=?,`last_name`=?,`email`=?,`gender`=?,`marks`=? WHERE id = ? ",data1,function(err,row){
+              if(err) reply(err);
+              else{
+                  _reply(userconnection);
+                  reply.view('listall/editstudent' , {title:'Users',data:student,message:"Student updated Successfully"});
+              }
+      });
+    }catch(e)
+        {
+            console.log(e);
+        }
+};
+
