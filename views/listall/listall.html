@@ -8,6 +8,7 @@
             <td class="sortable searchable" data="email">Email</td>
             <td data="gender">Gender</td>
             <td class="setRange sortable" data="marks">Marks</td>
+            <td class="setRange sortable" data="actions">Actions</td>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
             <td>{{this.email}}</td>
             <td>{{this.gender}}</td>
             <td>{{this.marks}}</td>
+            <td><a href="/editstudent/{{this.id}}" > Update </a><a class = "del" data="/delete/{{this.id}}" > Delete </a></td>
         </tr>
         {{/each}}
     </tbody>
